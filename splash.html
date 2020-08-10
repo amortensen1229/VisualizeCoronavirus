@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--META TAGS-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!--CSS BOOTSTRAP FRAMEWORK-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--BOXICONS LINK-->
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+  <!--LOCAL STYLE SHEET-->
+  <link href="styles.css" rel="stylesheet"/>
+  <title>Visualize CoronaVirus</title>
+</head>
+<body>
+
+  <!--START CONTENT-->
+
+  <div id="particles-js"></div>
+
+  <a id = "donate-button-anchor" href="https://covid19responsefund.org/en/">
+    <button id = "donate-button">
+        Donate
+    </button>
+  </a>
+
+  <p id = "title">Visualize Coronavirus</p>
+  <p id = "sub-title">An all-in-one dashbaord for coronavirus data at home and across the globe.</p>
+  <p id = "date">Updated: 7/30/2020</p>
+
+  <div class="row m-5">
+
+    <div class="col-md-4 mb-5" id = "left-tile">
+      <div class="card">
+        <h5 class="card-title">Global Data</h5>
+        <div class="icon-container">
+          <i class='bx bx-globe'></i>
+        </div>  
+        <p class="card-text">Visualization and informational data of effected countries.</p>
+      </div>
+    </div>
+
+
+    <div class="col-md-4 mb-5" id = "center-tile">
+      <div class="card">
+        <h5 class="card-title">United States Data</h5>
+
+        <div class="icon-container">
+            <i class='bx bx-line-chart-down'></i>
+        </div> 
+        <p class="card-text">Visualization and informational data of all 50 states.</p> 
+      </div>
+    </div>
+
+
+    <div class="col-md-4 mb-5" id = "right-tile">
+      <div class="card">
+        <h5 class="card-title">Global Map</h5>
+        <div class="icon-container">
+            <i class='bx bx-map'></i>
+        </div> 
+        <p class="card-text">World map containing all relevant infromation for each country.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<!--particle JS library-->
+<script src="particles.js"></script>
+
+
+<!--jQuery first, then Popper.js, then Bootstrap JS-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!--Standard app.js file-->
+<script src = "app.js"></script>
+
+</body>
+</html>

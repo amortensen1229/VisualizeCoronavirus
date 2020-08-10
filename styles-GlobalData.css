@@ -1,0 +1,241 @@
+body {
+  background-color: #15181C;
+  /*margin: 20px;*/
+  padding: 0px;
+  overflow: none;
+}
+
+#title {
+  display: flex;
+  justify-content: center;
+  font-size: 2.3rem;
+  color: #61DAFB;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: -5px;
+}
+#sub-title-icon {
+  font-size: 2.1rem;
+  padding-right: 10px;
+  padding-top: 11px;
+}
+
+
+.card {
+  background-color: rgb(52, 53, 56);
+  border: 2px solid #52545B;
+  -webkit-box-shadow: 3px 6px 30px -8px rgba(73,140,161,0.25);
+  -moz-box-shadow: 3px 6px 30px -8px rgba(73,140,161,0.25);
+  box-shadow: 3px 6px 30px -8px rgba(73,140,161,0.25);
+}
+
+
+/*Global Seperator*/
+#global-heading {
+  margin-top: 10px;
+  margin-left: 2.5rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: #61DAFB;
+  font-size: 1.4rem;
+}
+
+#global-heading:after {
+  content: '';
+  border-top: 2px solid;
+  flex: 1 0 20px;
+  margin-left: 10px;
+  color: #52545B;
+  margin-right: 10px;
+}
+
+#sub-title-wrapper {
+  display: flex;
+}
+
+
+#time-selector {
+  margin-top: 10px;
+  margin-right: 2.5rem;
+}
+
+#dropdownMenu2 {
+  background-color:rgb(52, 53, 56);
+  border: 0px;
+}
+
+.dropdown-menu {
+  background-color:#52545B;
+}
+.dropdown-item:hover {
+  background-color:#52545B;
+  color: #61DAFB;
+}
+
+.dropdown-item {
+  color: white;
+}
+
+
+
+/*Center Card Content*/
+
+.card-text {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #61DAFB;
+  
+}
+
+.description {
+  margin-bottom: 0px;
+  font-size: 1.0rem;
+  color: white;
+  text-align:center;
+}
+
+#total-recovered-frac {
+  margin-top: -15px;
+  font-size: 0.9rem;
+}
+
+#total-deaths-frac {
+  margin-top: -15px;
+  font-size: 0.9rem;
+}
+
+#active-cases-frac {
+  margin-top: -15px;
+  font-size: 0.9rem;
+}
+
+
+
+/*Lower Card Content*/
+
+#epicenter-countries {
+  padding: 10px;
+}
+#pi-chart {
+  padding: 15px;
+}
+
+#lower-container {
+  height: 425px;
+  /*55*/
+}
+
+
+#lower {
+  height: 100%;
+}
+
+#lower-stats {
+  height: 100%;
+}
+
+#pi {
+  height: 100%;
+}
+
+#pi-card {
+  height: 100%;
+}
+
+#total-cases-card {
+  height: 21%
+}
+
+#worst-countries-card {
+  height: 73%;
+}
+
+#cases-card-body {
+  padding: 8px;
+}
+
+
+
+
+
+
+
+/*
+.card {
+  padding: 20px;
+  padding-bottom: 5vh;
+  text-align: center;
+  font-size: 1.0rem;
+}
+
+
+#global-stats {
+  color: #61DAFB;
+  margin-top: 10px;
+  margin-left: 1.15rem;
+  font-size: 1.8rem;
+  margin-bottom: -5px;
+}
+
+#global-heading {
+  margin-top: 20px;
+  margin-left: 2.5rem;
+  margin-bottom: -10px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: whitesmoke;
+  font-size: 1.7rem;
+}
+
+#global-heading:after {
+  content: '';
+  border-top: 2px solid;
+  flex: 1 0 20px;
+  margin-left: 10px;
+  color: whitesmoke;
+  margin-right: 75px;
+}
+
+.card-text {
+  text-align: left;
+}
+
+#worst-countries {
+  padding-bottom: -20px;
+}
+
+.pi-chart {
+  height: 100%;
+  width: 100%;
+}
+
+#pi {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+*/
+
+/*
+#recovered {
+  margin-bottom: 1rem!important;
+}
+
+
+@media (max-width: 992px) {
+  #total-cases-card {
+    margin-top: 20px;
+  }
+  #recovered {
+    margin-bottom: 0px;
+  }
+
+
+}
+
+*/
