@@ -5,6 +5,35 @@ body {
   overflow: none;
 }
 
+#my-nav {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.nav-link {
+  color: #61DAFB;
+  font-size: 1.4rem;
+  transition: 0.2s transform ease-in-out;
+}
+
+.navbar-toggler {
+  background-color: #D2D3D4;
+}
+
+.nav-link:hover {
+  color:#498CA1;
+  transform: translateY(-5px);
+  transition: 0.2s;
+
+}
+
+#home-button-anchor {
+  position: absolute;
+  top: 25px;
+  left: 36px;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;
+}
+
 #title {
   display: flex;
   justify-content: center;
@@ -33,7 +62,7 @@ body {
 /*Global Seperator*/
 #global-heading {
   margin-top: 10px;
-  margin-left: 2.5rem;
+  margin-left: 2.4rem;
   display: flex;
   width: 100%;
   align-items: center;
@@ -81,6 +110,14 @@ body {
 
 /*Center Card Content*/
 
+#today-values {
+  display: none;
+}
+
+#today-cases-switch {
+  display: none;
+}
+
 .card-text {
   text-align: center;
   font-size: 1.6rem;
@@ -106,6 +143,21 @@ body {
 }
 
 #active-cases-frac {
+  margin-top: -15px;
+  font-size: 0.9rem;
+}
+
+#new-death-frac {
+  margin-top: -15px;
+  font-size: 0.9rem;
+}
+
+#new-recovered-frac {
+  margin-top: -15px;
+  font-size: 0.9rem;
+}
+
+#active-cases-frac-2 {
   margin-top: -15px;
   font-size: 0.9rem;
 }
@@ -148,12 +200,50 @@ body {
 }
 
 #worst-countries-card {
-  height: 73%;
+  height: 73.4%;
 }
 
 #cases-card-body {
   padding: 8px;
 }
+
+
+
+/*Country Content*/
+
+/*Header content*/
+
+#country-seperator-wrapper {
+  display: flex;
+}
+
+
+#country-heading {
+  margin-top: 50px;
+  margin-left: 2.4rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: #61DAFB;
+  font-size: 1.4rem;
+}
+
+#country-heading:after {
+  content: '';
+  border-top: 2px solid;
+  flex: 1 0 20px;
+  margin-left: 10px;
+  color: #52545B;
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+
 
 
 

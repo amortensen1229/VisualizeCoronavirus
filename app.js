@@ -8,10 +8,34 @@ $('#center-tile').click(function () {
 });
 
 $('#right-tile').click(function () {
-  window.location.href = "UnitedStatesData.html"
+  window.location.href = "GlobalMap.html"
 })
 
 
+$("document").ready( function() {
+  $.ajax({
+    url: "https://api.covid19api.com/summary",
+    type: 'GET',
+    dataType: "json",
+    success: function(data, status) {
+      latest_date(data);
+    },
+  });
+});
+
+
+function latest_date (data) {
+  console.log(data);
+  let current_date = data.Date.split("T")[0];
+  console.log(current_date);
+  let year = current_date.substr(0,4);
+  let month = current_date.substr(5,2);
+  let day = current_date.substr(8,2);
+  console.log(year);
+  console.log(month); // 12/29/2000
+  console.log(day);
+  $("#date").html("Updated: " + month + "/" + day + "/" + year);
+}
 
 
 

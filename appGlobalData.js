@@ -43,9 +43,13 @@ function fill_global_information(data) {
   $("#total-recovered").html(total_rec);
   $("#total-deaths").html( total_death);
   $("#active-cases").html(total_active);
+  $("#active-cases-2").html(total_active);
   $("#total-deaths-frac").html(((data.Global.TotalDeaths/data.Global.TotalConfirmed) * 100).toFixed(2) + "%");
   $("#total-recovered-frac").html(((data.Global.TotalRecovered/data.Global.TotalConfirmed) * 100).toFixed(2) + "%");
   $("#active-cases-frac").html((((data.Global.TotalConfirmed - data.Global.TotalRecovered - data.Global.TotalDeaths)/data.Global.TotalConfirmed) * 100).toFixed(2) + "%");
+  $("#active-cases-frac-2").html((((data.Global.TotalConfirmed - data.Global.TotalRecovered - data.Global.TotalDeaths)/data.Global.TotalConfirmed) * 100).toFixed(2) + "%");
+  $("#new-death-frac").html((data.Global.NewDeaths/data.Global.NewConfirmed * 100).toFixed(2) + "%");
+  $("#new-recovered-frac").html((data.Global.NewRecovered/data.Global.NewConfirmed * 100).toFixed(2) + "%");
 }
 
 function line_chart_protocol(cases, dates) {
@@ -138,8 +142,6 @@ function get_country_data(name) {
           if (val.Date.includes('T')) {
             cases.push(val.Active);
             dates.push(val.Date.split("T")[0]);
-
-            //case_date.set(val.Active, val.Date.split("T")[0]);
           }
         }
       });
@@ -182,9 +184,6 @@ function fill_country_options(data) {
     epicenter_countries.push(new country("", 0, 0, 0, "", 0, 0, 0));
   }
   $.each(countries, function (i, val) {
-    //$(".dropdown-menu").append(
-     // '<button class="dropdown-item" type="button" onclick="get_country_data(\'' + countries[i].Country + '\')">'+ countries[i].Country + '</button>'
-    //)
     country_slug_map.set(val.Country, val.Slug);
     countries_set.add(new country(
       val.Country, val.TotalConfirmed, 
@@ -202,17 +201,6 @@ function fill_country_options(data) {
           break;
       }
     }
-    //Fill Epicenter Data:
-    /*
-    $("#epicenter-countries").html(
-      "1. " + epicenter_countries[0].name + "<br/>" + 
-      "2. " + epicenter_countries[1].name + "<br/>" +
-      "3. " + epicenter_countries[2].name + "<br/>" +
-      "4. " + epicenter_countries[3].name + "<br/>" +
-      "5. " + epicenter_countries[4].name + "<br/>" 
-    );
-    */
-
   });
   bar_chart_protocol();
 
@@ -226,13 +214,15 @@ $("document").ready(function() {
     url: "https://api.covid19api.com/summary",
     type: 'GET',
     dataType: "json",
-    success: function(data, status) {
-      
+    timeout: 5000,
+    success: function(data, status) {  
       fill_global_information(data);
       fill_country_options(data);
       media_changes_small(media_break_small);
     },
-  });
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    $('#myModal').modal('show');
+ });
 });
 
 
@@ -261,7 +251,7 @@ var pi_graph = new Chart(ctx_pi, {
       fill: false,
       data:  [ pi_data[0], pi_data[1], pi_data[2]],
       backgroundColor: ['#61DAFB', '#498CA1', '#1F2833' ],
-      borderColor: '#498CA1',
+      borderColor: '#343538',
       hoverBackgroundColor: ['#61DAFB', '#498CA1', '#1F2833' ]
     }]
   }, 
@@ -312,7 +302,7 @@ var bar_graph = new Chart(ctx_bar, {
 
     title: {
       display: true,
-      text: 'Worst Countries By Epicenter',
+      text: 'Confirmed Cases By Country',
       fontSize: 18,
       fontColor: "#ffffff"
     }
@@ -322,13 +312,30 @@ Chart.defaults.global.defaultFontColor = 'white';
 //===========================================================================//
 
 
-//Media Queries:
+//Media Queries & Event Listeners:
 //===========================================================================//
 
 var media_break_small = window.matchMedia("(max-width: 992px)");
 var media_break_large = window.matchMedia("(min-width: 993px)");
 media_break_small.addListener(media_changes_small);
 media_break_large.addListener(media_changes_large);
+
+$("#today-button").click(function () {
+  document.getElementById("today-values").style.display = "flex";
+  document.getElementById("total-values").style.display = "none";
+  document.getElementById("today-cases-switch").style.display = "inline";
+  document.getElementById("total-cases-switch").style.display = "none";
+  
+});
+
+
+$("#total-button").click(function () {
+  document.getElementById("today-values").style.display = "none";
+  document.getElementById("total-values").style.display = "flex";
+  document.getElementById("today-cases-switch").style.display = "none";
+  document.getElementById("total-cases-switch").style.display = "inline";
+});
+
 
 function media_changes_small(current_width) {
   console.log("checking");
@@ -346,6 +353,8 @@ function media_changes_large(current_width) {
     }];     
   }
 }
+
+
 
 
 

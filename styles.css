@@ -2,14 +2,15 @@ body {
   background: #15181C;
   margin: 0px;
   padding: 0px;
+  overflow: none;
 }
 
 
 #particles-js {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: #15181C;
-  position: absolute;
+  position: fixed;
   z-index: -1;
 }
 
@@ -33,6 +34,8 @@ body {
   background-color: #61DAFB;
   border-radius: 5px;
   color: #15181C;
+  border: 1px solid #498CA1;
+
 }
 
 #title {
@@ -45,6 +48,7 @@ body {
   display: flex;
   justify-content: center;
   color: #61DAFB;
+  text-align: center;
 }
 #sub-title {
   font-size: 1.2rem;
@@ -53,6 +57,7 @@ body {
   color: #D2D3D4;
   margin-left: 10px;
   margin-right: 10px;
+  text-align: center;
 }
 
 #date {
@@ -78,6 +83,10 @@ margin-right: 20%;
   border-radius: 15px;
   height: 35vh;
   transition: 0.2s transform ease-in-out;
+  border: 1px solid #52545B;
+  -webkit-box-shadow: 3px 6px 30px -8px rgba(73,140,161,0.25);
+  -moz-box-shadow: 3px 6px 30px -8px rgba(73,140,161,0.25);
+  box-shadow: 3px 6px 30px -8px rgba(73,140,161,0.25);
 }
 
 .card:hover {
@@ -99,6 +108,18 @@ margin-right: 20%;
   color:#D2D3D4;
 }
 
+
+@media (max-width: 400px) {
+  #title {
+    font-size: 2.0rem;
+  }
+  #sub-title {
+    font-size: 1.0rem;
+  }
+  #date {
+    font-size: 1.0rem;
+  }
+}
 
 
 

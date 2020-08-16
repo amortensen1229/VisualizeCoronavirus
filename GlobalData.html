@@ -17,6 +17,34 @@
 </head>
 
 <body>
+<nav class="navbar navbar-expand-md justify-content-end" id="my-nav">
+    <button class = "navbar-toggler" data-toggle = "collapse" data-target = "#collapse-me">
+      <span class = "navbar-toggler-icon"> 
+          <i class='bx bxs-chevron-left' style='color:#15181C; font-size: 2.0rem'></i>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id = "collapse-me">
+      <ul class = "navbar-nav"> 
+        <li class = "nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+  
+        <li class = "nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Global Data</a>
+        </li>
+  
+        <li class = "nav-item">
+          <a class="nav-link" href="UnitedStatesData.html">United States Data</a>
+        </li>
+  
+        <li class = "nav-item">
+          <a class="nav-link" href = "GlobalMap.html">Global Map</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
   <p id = "title">
     <i class='bx bx-globe' id = "sub-title-icon"></i>
     Global Data
@@ -29,8 +57,39 @@
         All Time Data
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button">All Time Data</button>
-        <button class="dropdown-item" type="button">Today's Data</button>
+        <button class="dropdown-item" type="button" id = "total-button">All Time Data</button>
+        <button class="dropdown-item" type="button" id = "today-button">Today's Data</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="row m-3" id = "today-values">
+    <div class="col-md-4 mb-3">
+      <div class="card">
+          <div class="card-body">
+              <p class="description">Total Active Cases</p>
+              <p class="card-text" id = "active-cases-2">-------</p>
+              <p class="card-text" id = "active-cases-frac-2">----</p>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+          <div class="card-body">
+              <p class="description">Today's Deaths</p>
+              <p class="card-text" id = "new-death">-----</p>
+              <p class="card-text" id = "new-death-frac">----</p>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+          <div class="card-body">
+              <p class="description">Today's Recovered</p>
+              <p class="card-text" id = "new-recovered">-------</p>
+              <p class="card-text" id = "new-recovered-frac">----</p>
+          </div>
       </div>
     </div>
   </div>
@@ -38,22 +97,13 @@
 
 
 
-
-
-
-  <div class="row m-3">
-
+  <div class="row m-3" id = "total-values">
     <div class="col-md-4 mb-3">
       <div class="card">
           <div class="card-body">
-            <!--
-              <p class="description">Total Confirmed</p>
-              <p class="card-text" id = "total-cases" >------</p>
-            -->
             <p class="description">Total Active Cases</p>
             <p class="card-text" id = "active-cases">-------</p>
             <p class="card-text" id = "active-cases-frac">----</p>
-            
           </div>
       </div>
     </div>
@@ -62,7 +112,7 @@
         <div class="card-body">
           <p class="description">Total Deaths</p>
           <p class="card-text" id = "total-deaths">------</p>
-          <p class="card-text" id="total-deaths-frac">----</p>
+          <p class="card-text" id= "total-deaths-frac">----</p>
           
           
         </div>
@@ -92,8 +142,14 @@
       <div class="col-md-7" id="lower-stats">
         <div class="card mb-4" id = "total-cases-card">
             <div class="card-body" id = "cases-card-body">
-            <p class="description">Total Confirmed Cases</p>
-            <p class="card-text" id = "total-cases">------</p>
+              <div id="total-cases-switch">
+                <p class="description">Total Confirmed Cases</p>
+                <p class="card-text" id = "total-cases">------</p>
+              </div>
+              <div id="today-cases-switch">
+                <p class="description">Today's Confirmed</p>
+                <p class="card-text" id = "new-cases">-----</p>
+              </div>
             </div> 
         </div>  
         
@@ -105,6 +161,27 @@
   </div>
 
 
+  <!--MODAL CONTENT-->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          There was an error loading the data. Try refreshing the page or check back later!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 
 
   <!--jQuery-->
@@ -116,44 +193,3 @@
   <script src = "appGlobalData.js"></script>
 </body>
 </html>
-
-
-        <!--
-          <div class="card-body">
-            <p id= "epicenter-data">Worst Epicenter by Country | Graph View</p>
-            <p class="card-text" id= "epicenter-countries"></p>
-          </div>
-      </div>
-        -->
-
-
-
-
- <!--
-  <div class="row m-3">
-    <div class="col-md-4 mb-3">
-      <div class="card">
-          <div class="card-body">
-              <p class="card-text" id = "new-cases"></p>
-              <p class="description">Today's Confirmed</p>
-          </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="card">
-          <div class="card-body">
-              <p class="card-text" id = "new-death"></p>
-              <p class="description">Today's Deaths</p>
-          </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="card">
-          <div class="card-body">
-              <p class="card-text" id = "new-recovered"></p>
-              <p class="description">Today's Recovered</p>
-          </div>
-      </div>
-    </div>
-  </div>
--->
