@@ -20,7 +20,7 @@ function numberWithCommas(x) {
 }
 
 /* Construct Map: */
-var mymap = L.map('leaflet-map').setView([25, 0], 3);
+var mymap = L.map('leaflet-map').setView([25, -25], 2);
 L.tileLayer.provider('CartoDB.DarkMatterNoLabels').addTo(mymap);
 
 
@@ -33,7 +33,7 @@ function fill_country_options(data) {
           country_latlong[val.CountryCode.toLowerCase()][0], 
           country_latlong[val.CountryCode.toLowerCase()][1],
           val.TotalConfirmed));
-          addMarker(a_mapping_country)
+          addMarker(a_mapping_country);
       } else {
         console.log("mismatch");
       }

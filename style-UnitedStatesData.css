@@ -6,7 +6,6 @@ body {
   overflow: none;
 }
 
-
 #my-nav {
   margin-top: 10px;
   margin-right: 10px;
@@ -15,8 +14,13 @@ body {
 .navbar-toggler {
   margin-right: -15px;
   background-color: transparent;
-
 }
+
+.tooltips {
+ display: none;
+}
+
+
 
 
 .nav-link {
@@ -30,6 +34,31 @@ body {
   transform: translateY(-5px);
   transition: 0.2s;
 
+}
+
+.info {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+.info h4 {
+  margin: 0 0 5px;
+  color: #777;
+}
+
+.legend {
+  line-height: 18px;
+  color: #555;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
 }
 
 #title {
@@ -65,15 +94,41 @@ body {
   box-shadow: 3px 6px 30px -8px rgba(73,140,161,0.25);
 }
 
+
 @media (max-width: 768px) {
   #title {
     font-size: 1.6rem;
   }
   #sub-title-icon {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin-top: -3px;
   }
   #leaflet-map {
     width: 100vw;
   }
+  .legend {
+    display: none;
+  }
+  .info {
+    display: none;
+  }
+  .tooltips {
+    display: inline;
+  }
 }
+
+
+
+@media (max-width: 400px) {
+  #title {
+    font-size: 1.4rem;
+  }
+  #sub-title-icon {
+    font-size: 1.2rem;
+    margin-top: -3px;
+  }
+  .tooltips {
+    display: inline;
+  }
+}
+
