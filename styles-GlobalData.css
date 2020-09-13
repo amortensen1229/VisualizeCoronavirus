@@ -244,11 +244,14 @@ body {
     font-size: 1.6rem;
   }
   #sub-title-icon {
-    font-size: 1.2rem;
-    margin-top: -3px;
+    font-size: 1.3rem;
   }
   #global-heading:after {
     display: none;
   }
+  #total-cases-card {
+    margin-top: 25px;
+  }
+
 }
 

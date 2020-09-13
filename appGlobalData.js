@@ -218,7 +218,7 @@ $("document").ready(function() {
     success: function(data, status) {  
       fill_global_information(data);
       fill_country_options(data);
-      media_changes_small(media_break_small);
+      //media_changes_small(media_break_small);
     },
   }).fail(function (jqXHR, textStatus, errorThrown) {
     $('#myModal').modal('show');
@@ -315,17 +315,17 @@ Chart.defaults.global.defaultFontColor = 'white';
 //Media Queries & Event Listeners:
 //===========================================================================//
 
-var media_break_small = window.matchMedia("(max-width: 992px)");
-var media_break_large = window.matchMedia("(min-width: 993px)");
-media_break_small.addListener(media_changes_small);
-media_break_large.addListener(media_changes_large);
+//var media_break_small = window.matchMedia("(max-width: 992px)");
+//var media_break_large = window.matchMedia("(min-width: 993px)");
+//media_break_small.addListener(media_changes_small);
+//media_break_large.addListener(media_changes_large);
 
 $("#today-button").click(function () {
   document.getElementById("today-values").style.display = "flex";
   document.getElementById("total-values").style.display = "none";
   document.getElementById("today-cases-switch").style.display = "inline";
   document.getElementById("total-cases-switch").style.display = "none";
-  
+  $('#dropdownMenu2').html('Today\'s Data ');
 });
 
 
@@ -334,11 +334,11 @@ $("#total-button").click(function () {
   document.getElementById("total-values").style.display = "flex";
   document.getElementById("today-cases-switch").style.display = "none";
   document.getElementById("total-cases-switch").style.display = "inline";
+  $('#dropdownMenu2').html('All Time Data ');
 });
 
-
+/*
 function media_changes_small(current_width) {
-  console.log("checking");
   if (current_width.matches) {
     bar_graph.options.scales.xAxes = [{
       display: false
@@ -354,70 +354,4 @@ function media_changes_large(current_width) {
   }
 }
 
-
-
-
-
-
-
-
-
-/*
-//Creating Line-Chart Object:
-//===========================================================================//
-var ctx_line = document.getElementById('line-chart').getContext('2d');
-var line_graph = new Chart(ctx_line, {
-  type: 'line',
-  data: {
-    labels: date,
-    datasets: [{
-      label: '# of cases',
-      fill: false,
-      data:  [],
-      backgroundColor: '#66FCF1 ',
-      borderColor: '#45A29E' 
-    }]
-  },
-  options: {
-    maintainAspectRatio: false,
-    responsive: true,
-
-    title: {
-      display: true,
-      text: 'Population Data',
-      fontSize: 20
-    },
-    tooltips: {
-      mode: 'nearest',
-      intersect: false,
-      backgroundColor: '#1F2833'
-    },
-    hover: {
-      intersect: false
-    },
-    scales: {
-      xAxes: [{
-        display: true,
-        gridLines: {
-          color: "#1F2833"
-        },
-        scaleLabel: {
-          display: true,
-          labelString: 'Weekly'
-        }
-      }],
-      yAxes: [{
-        display: true,
-        gridLines: {
-          color: "#1F2833"
-        },
-        scaleLabel: {
-          display: true,
-          labelString: 'Number of Cases'
-        }
-      }]
-    }
-  }
-});
-Chart.defaults.global.defaultFontColor = '#C5C6C7';
 */
