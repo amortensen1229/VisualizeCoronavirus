@@ -109,7 +109,7 @@ function bar_chart_protocol() {
 
     //Insert New Chart Information:
     let names = [];
-    for (let i = 0; i < epicenter_countries.length; i++) {
+    for (let i = 0; i < 4; i++) {
       names.push(epicenter_countries[i].name);
     }
     bar_graph.data.labels = names;
@@ -190,18 +190,26 @@ function fill_country_options(data) {
       val.TotalDeaths, val.TotalRecovered, 
       val.Slug, val.NewConfirmed, val.NewDeaths,
       val.NewRecovered));
-      console.log(epicenter_countries.length);
-    for (let i = 0; i < 4; i++) {
-      if (val.TotalConfirmed >(epicenter_countries[i].confirmed)) {
-        epicenter_countries[i] = new country(
-          val.Country, val.TotalConfirmed, 
-          val.TotalDeaths, val.TotalRecovered, 
-          val.Slug, val.NewConfirmed, val.NewDeaths,
-          val.NewRecovered);
-          break;
+      //console.log(epicenter_countries.length);
+      for (let i = 0; i < 4; ++i) {
+        //console.log(i);
+        console.log(epicenter_countries[i].name);
+        if (val.TotalConfirmed > epicenter_countries[i].confirmed) {
+          epicenter_countries.splice(i,0, new country(
+            val.Country, val.TotalConfirmed, 
+            val.TotalDeaths, val.TotalRecovered, 
+            val.Slug, val.NewConfirmed, val.NewDeaths,
+            val.NewRecovered));
+            //console.log(epicenter_countries[i].name + " " + epicenter_countries[i].confirmed); 
+            break;
+        }
+       
       }
-    }
-  });
+      console.log('\n\n')
+    });
+  for (let i = 0; i < 4; ++i) {
+    console.log(epicenter_countries[i].name);
+  }
   bar_chart_protocol();
 
 }
