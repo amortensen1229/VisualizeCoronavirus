@@ -219,6 +219,7 @@ $("document").ready(function() {
     success: function(data, status) {  
       fill_global_information(data);
       fill_country_options(data);
+      bar_chart_protocol();
     },
   }).fail(function (jqXHR, textStatus, errorThrown) {
     $('#myModal').modal('show');
