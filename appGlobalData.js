@@ -190,26 +190,19 @@ function fill_country_options(data) {
       val.TotalDeaths, val.TotalRecovered, 
       val.Slug, val.NewConfirmed, val.NewDeaths,
       val.NewRecovered));
-      //console.log(epicenter_countries.length);
       for (let i = 0; i < 4; ++i) {
-        //console.log(i);
-        console.log(epicenter_countries[i].name);
         if (val.TotalConfirmed > epicenter_countries[i].confirmed) {
           epicenter_countries.splice(i,0, new country(
             val.Country, val.TotalConfirmed, 
             val.TotalDeaths, val.TotalRecovered, 
             val.Slug, val.NewConfirmed, val.NewDeaths,
             val.NewRecovered));
-            //console.log(epicenter_countries[i].name + " " + epicenter_countries[i].confirmed); 
             break;
         }
        
       }
-      console.log('\n\n')
+
     });
-  for (let i = 0; i < 4; ++i) {
-    console.log(epicenter_countries[i].name);
-  }
   bar_chart_protocol();
 
 }
@@ -226,7 +219,6 @@ $("document").ready(function() {
     success: function(data, status) {  
       fill_global_information(data);
       fill_country_options(data);
-      //media_changes_small(media_break_small);
     },
   }).fail(function (jqXHR, textStatus, errorThrown) {
     $('#myModal').modal('show');
@@ -322,12 +314,6 @@ Chart.defaults.global.defaultFontColor = 'white';
 
 //Media Queries & Event Listeners:
 //===========================================================================//
-
-//var media_break_small = window.matchMedia("(max-width: 992px)");
-//var media_break_large = window.matchMedia("(min-width: 993px)");
-//media_break_small.addListener(media_changes_small);
-//media_break_large.addListener(media_changes_large);
-
 $("#today-button").click(function () {
   document.getElementById("today-values").style.display = "flex";
   document.getElementById("total-values").style.display = "none";
@@ -344,22 +330,3 @@ $("#total-button").click(function () {
   document.getElementById("total-cases-switch").style.display = "inline";
   $('#dropdownMenu2').html('All Time Data ');
 });
-
-/*
-function media_changes_small(current_width) {
-  if (current_width.matches) {
-    bar_graph.options.scales.xAxes = [{
-      display: false
-    }];     
-  }
-}
-
-function media_changes_large(current_width) {
-  if (current_width.matches) {
-    bar_graph.options.scales.xAxes = [{
-      display: true
-    }];     
-  }
-}
-
-*/

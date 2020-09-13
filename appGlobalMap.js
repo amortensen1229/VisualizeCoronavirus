@@ -34,11 +34,8 @@ function fill_country_options(data) {
           country_latlong[val.CountryCode.toLowerCase()][1],
           val.TotalConfirmed));
           addMarker(a_mapping_country);
-      } else {
-        console.log("mismatch");
-      }
+      } 
   }
-
 }
 
 

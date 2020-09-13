@@ -118,7 +118,7 @@ function fill_color (feature) {
 
 
 /* Construct Map Object*/
-var mymap = L.map('leaflet-map').setView([37.8, -96], 4);
+var mymap = L.map('leaflet-map').setView([37.8, -96], 3);
 L.tileLayer.provider('CartoDB.DarkMatterNoLabels').addTo(mymap);
 var info = L.control();
 info.onAdd = function (mymap) {
@@ -194,26 +194,3 @@ function fill_statesData_object (data) {
     }
   }
 }
-
-
-
-
-
-/*
- Alternate color options:
-  return metric > 200000 ? '#08519c':
-  metric > 150000 ? '#3182bd': 
-  metric > 100000 ? '#6baed6': 
-  metric > 50000  ? '#bdd7e7':
-                    '#eff3ff';
-  
-  return metric > 200000 ? '#D8F5FD':
-    metric > 150000 ? '#9CE7FC': 
-    metric > 100000 ? '#08ABD9': 
-    metric > 50000  ? '#045E77':
-                      '#011F28';
-
-
-
-                      
-                      */

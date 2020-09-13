@@ -1,6 +1,5 @@
 body {
   background-color: #15181C;
-  /*margin: 20px;*/
   padding: 0px;
   overflow: none;
 }
@@ -251,6 +250,9 @@ body {
   }
   #total-cases-card {
     margin-top: 25px;
+  }
+  #worst-countries-card {
+    margin-bottom: 75px;
   }
 
 }
